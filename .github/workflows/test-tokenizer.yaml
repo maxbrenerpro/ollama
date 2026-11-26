@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   reference:
-    runs-on: ubuntu-latest
+    runs-on: play-2vcpu
     timeout-minutes: 15
     env:
       FETCH_TOKENIZERS: '1'
