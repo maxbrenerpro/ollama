@@ -19,7 +19,7 @@ on:
 
 jobs:
   changes:
-    runs-on: ubuntu-latest
+    runs-on: play-2vcpu
     outputs:
       changed: ${{ steps.changes.outputs.changed }}
       app_changed: ${{ steps.changes.outputs.app_changed }}
@@ -381,7 +381,7 @@ jobs:
             throw "missing installed llama-quantize.exe"
           }
   go_mod_tidy:
-    runs-on: ubuntu-latest
+    runs-on: play-2vcpu
     steps:
       - uses: actions/checkout@v4
       - name: check that 'go mod tidy' is clean
@@ -390,7 +390,7 @@ jobs:
   go_license:
     needs: [changes]
     if: needs.changes.outputs.go_mod_changed == 'True'
-    runs-on: ubuntu-latest
+    runs-on: play-2vcpu
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
